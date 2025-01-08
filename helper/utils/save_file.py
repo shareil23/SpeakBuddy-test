@@ -14,3 +14,12 @@ async def save_to_tmp(file):
 
     relative_path = tmp_file_path.relative_to(TMP_DIR.parents[1])
     return relative_path
+
+
+async def download_tmp_file(file_name):
+    tmp_file_path = TMP_DIR / file_name
+
+    if not os.path.exists(tmp_file_path):
+        return None
+
+    return tmp_file_path
